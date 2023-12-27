@@ -12,6 +12,12 @@ abstract public class AbstractQueue {
         return false; // to do
     }
 
+    public void takeScannerInput () {
+        /**
+         * present menu items nd ask input from scanner, process the input similarly as like from cmd
+         */
+    }
+
     public Object[] ignoreDuplicate(Object[] inputDataArr) {
         /**
          // iterate inputDataArray and ensure no duplicates are present -> for each i ensure there is no other

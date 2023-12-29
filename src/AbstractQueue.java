@@ -1,38 +1,78 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashSet;
 import java.util.Scanner;
 
+/**
+ * This is the parent abstract class to initiate the Queue using Array and Linked List implementations
+ */
 abstract public class AbstractQueue {
+
+    /**
+     * This is just a reference to the abstract queue.
+     * The abstract queue is instantiated based on Array implementation and Linked List Implementation
+     */
     public static AbstractQueue abstractQueue;
 
+    /**
+     * Adds an element into the queue from the rear side
+     *
+     * @param item
+     */
     abstract public void enqueue(int item);
 
+    /**
+     * Display the elements containing in the queue at that moment
+     */
     abstract public void displayQueueStatus();
 
+    /**
+     * Removes the front element from the queue
+     *
+     * @return dequeued element as integer
+     */
     abstract public int dequeue();
 
+    /**
+     * Returns size of the queue
+     *
+     * @return Queue size as integer
+     */
     abstract public int size();
 
     public static int indx = 0;
     public static int sz = 0;
-    public static int[] queueElements = null;
-    public static boolean[] addedElements = new boolean[QueueConstants.CAPACITY];
 
+    /**
+     * Array contains integer elements from file content
+     */
+    public static int[] queueElements = null;
+
+    /**
+     * HashSet used to filter out the duplicate input elements
+     */
+    public static HashSet<Integer> uniqueElements = new HashSet<Integer>();
+
+    /**
+     * util method that asks for scanner input during runtime of the program
+     */
     public static void takeScannerInput() {
         int choice = 1;
         Scanner scanner = new Scanner(System.in);
         do {
             abstractQueue.displayQueueStatus();
-            System.out.println("Size: " + abstractQueue.size());
+            System.out.println(" | Size: " + abstractQueue.size());
             System.out.println("\nPress any key (other than 0) to dequeue, or 0 to exit");
             choice = scanner.nextInt();
             if (choice != 0) {
                 System.out.println("Dequeue: " + abstractQueue.dequeue());
-
             }
         } while (choice != 0);
     }
 
+    /**
+     * util method that asks for scanner input during runtime of the program for sorted linked list
+     */
     public static void takeScannerInputSortedList(SortedLinkedList sortedLinkedList) {
         Scanner scanner = new Scanner(System.in);
         int removeElement = -1;
@@ -47,28 +87,40 @@ abstract public class AbstractQueue {
         } while (removeElement != -1);
     }
 
+    /**
+     * util method that reads individual input file contents and store the input unique elements into an array
+     *
+     * @param filePath
+     * @throws FileNotFoundException
+     * @throws Exception
+     */
     public static void readInputFile(String filePath) throws FileNotFoundException, Exception {
         File file = new File(filePath);
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             String elementStr = scanner.nextLine();
             int element = Integer.parseInt(elementStr);
-            if (!addedElements[element]) {
+            if (uniqueElements.add(element)) {
                 queueElements[indx++] = element;
-                addedElements[element] = true;
             }
         }
         scanner.close();
     }
 
+    /**
+     * computes the total number of unique elements in the input file content, if total elements exceeds the capacity then an Exception is thrown
+     *
+     * @param filePath
+     * @throws FileNotFoundException
+     * @throws Exception
+     */
     public static void initializeInputFilesArraySize(String filePath) throws FileNotFoundException, Exception {
         File file = new File(filePath);
         Scanner scanner = new Scanner(file);
         while (scanner.hasNextLine()) {
             String elementStr = scanner.nextLine();
             int element = Integer.parseInt(elementStr);
-            if (!addedElements[element]) {
-                addedElements[element] = true;
+            if (uniqueElements.add(element)) {
                 sz++;
             }
         }
@@ -77,13 +129,25 @@ abstract public class AbstractQueue {
         }
     }
 
+    /**
+     * reads input elements from command line
+     * @param element
+     */
     public static void readInputElementsFromCMD(int element) {
-        if (!addedElements[element]) {
+        if (uniqueElements.add(element)) {
             queueElements[indx++] = element;
-            addedElements[element] = true;
         }
     }
 
+    /**
+     * main driver method that executes the whole program. It performs following operations -
+     * 1. initialze Queue operations using Array implementation
+     * 2. initialize Queue operations using Linked List implementation
+     * 3. initialize sorted linked list and its operations
+     *
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         String inputSource = args[0];
         String[] inputElements = inputSource.split(",");
@@ -94,7 +158,7 @@ abstract public class AbstractQueue {
             for (int x = 0; x < inputElements.length; x++) {
                 initializeInputFilesArraySize(inputElements[x]);
             }
-            addedElements = new boolean[QueueConstants.CAPACITY];
+            uniqueElements = new HashSet<Integer>();
             queueElements = new int[sz];
             for (int x = 0; x < inputElements.length; x++) {
                 readInputFile(inputElements[x]); // read input

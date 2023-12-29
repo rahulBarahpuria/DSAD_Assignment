@@ -1,0 +1,14 @@
+Specification and Design document. This Document should also include -
+Function Definitions:
+
+Data Structures and Variables Names
+1. Array - queueArray, queueElements, addedElements
+2. Linked List
+3. HashSet - uniqueElements
+
+Assumptions used in the program:
+1. Command line Input should contain either (i) comma-separated absolute paths of input files, or (ii) comma-separated Integer elements.
+2. Input files should contain Integer elements separated by new line (/n).
+3. Input file format must be a text file (.txt file).
+3. Maximum input elements that can be given including all input files is 100000.
+4. Two integer values are used as keywords for user input during program runtime: 0 and -1. It is not advisable to use these 0 or -1 as input element for the queue or list.

@@ -5,6 +5,10 @@ public class QueueLinkedListImpl extends AbstractQueue{
         front = rear = null;
     }
 
+    /**
+     * Insert an integer element into queue using Linked List implementation. Also checks for if queue size is full or queue is empty.
+     * @param item
+     */
     @Override
     public void enqueue(int item) {
         Node newNode = new Node(item);
@@ -16,6 +20,10 @@ public class QueueLinkedListImpl extends AbstractQueue{
         rear = newNode;
     }
 
+    /**
+     * remove front element from the queue using Linked List Implementation. Also checks for if queue is empty.
+     * @return dequeued integer element
+     */
     @Override
     public int dequeue() {
         if (isEmpty()) {
@@ -30,6 +38,10 @@ public class QueueLinkedListImpl extends AbstractQueue{
         return item;
     }
 
+    /**
+     * check if queue is empty using array implementation
+     * @return boolean
+     */
     public boolean isEmpty() {
         return front == null;
     }

@@ -84,7 +84,7 @@ abstract public class AbstractQueue {
                 long start = System.currentTimeMillis();
                 sortedLinkedList.remove(removeElement);
                 long end = System.currentTimeMillis();
-                System.out.println("Time Taken: " + (end - start));
+                System.out.println("Time Taken to remove an element: " + (end - start));
             }
         } while (removeElement != -1);
     }

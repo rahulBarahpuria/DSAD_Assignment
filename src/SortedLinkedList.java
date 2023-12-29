@@ -35,10 +35,13 @@ public class SortedLinkedList {
         }
 
         Node current = head;
+        long start = System.currentTimeMillis();
         while (current.next != null && current.next.data != item) {
             current = current.next;
         }
-
+        long end = System.currentTimeMillis();
+        long diff = end - start;
+        System.out.println("Time to search an element: " + diff);
         if (current.next != null) {
             current.next = current.next.next;
         } else {

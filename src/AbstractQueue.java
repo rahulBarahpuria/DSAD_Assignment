@@ -1,62 +1,133 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 abstract public class AbstractQueue {
-    AbstractQueue abstractQueue;
+    public static AbstractQueue abstractQueue;
 
-    public static void main(String[] input) {
-        System.out.println("Hello World");
-        String action = input[0];
-        String data = input[1];
+    abstract public void enqueue(int item);
+
+    abstract public void displayQueueStatus();
+
+    abstract public int dequeue();
+
+    abstract public int size();
+
+    public static int indx = 0;
+    public static int sz = 0;
+    public static int[] queueElements = null;
+    public static boolean[] addedElements = new boolean[QueueConstants.CAPACITY];
+
+    public static void takeScannerInput() {
+        int choice = 1;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            abstractQueue.displayQueueStatus();
+            System.out.println("Size: " + abstractQueue.size());
+            System.out.println("\nPress any key (other than 0) to dequeue, or 0 to exit");
+            choice = scanner.nextInt();
+            if (choice != 0) {
+                System.out.println("Dequeue: " + abstractQueue.dequeue());
+
+            }
+        } while (choice != 0);
     }
 
-    public boolean validateInput(String[] input) {
-        // validate input - action and inputData
-        return false; // to do
+    public static void takeScannerInputSortedList(SortedLinkedList sortedLinkedList) {
+        Scanner scanner = new Scanner(System.in);
+        int removeElement = -1;
+        do {
+            System.out.println("Sorted Linked List:");
+            sortedLinkedList.display();
+            System.out.println("\nEnter element to remove otherwise enter -1 to exit");
+            removeElement = scanner.nextInt();
+            if (removeElement != -1) {
+                sortedLinkedList.remove(removeElement);
+            }
+        } while (removeElement != -1);
     }
 
-    public void takeScannerInput () {
-        /**
-         * present menu items nd ask input from scanner, process the input similarly as like from cmd
-         */
-    }
-
-    public Object[] ignoreDuplicate(Object[] inputDataArr) {
-        /**
-         // iterate inputDataArray and ensure no duplicates are present -> for each i ensure there is no other
-         i with brute force algorithm, if it is found just remove the recurrence, shift the array and then
-         continue checking till the different element, repeat the steps for every element
-         // get the existing data from queueData by traversing and and remove duplicates if present from
-         inputDataArray (use queueimpl.searchQueue(elem, queueimpl.queueData))
-         // will be checking for other ways to achieve the above
-         // return inputDataArray
-         **/
-        return null; // to do
-    }
-
-    Object[] readInputSource(String data) {
-        String[] dataElements = data.split(",");
-        if (dataElements.length > 1) {
-            for (int i = 0; i < dataElements.length; i++) {
-                if (dataElements[i].endsWith(QueueConstants.TXT_EXTENSION) || dataElements[i].endsWith(QueueConstants.CSV_EXTENSION)) {
-                    // call readInputViaFile (String dataElements[i])
-                } else {
-                    // call readInputViaCMD (String dataElements)
-                }
+    public static void readInputFile(String filePath) throws FileNotFoundException, Exception {
+        File file = new File(filePath);
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {
+            String elementStr = scanner.nextLine();
+            int element = Integer.parseInt(elementStr);
+            if (!addedElements[element]) {
+                queueElements[indx++] = element;
+                addedElements[element] = true;
             }
         }
-        return null; // to do
+        scanner.close();
     }
 
-    Object[] readInputViaFile(String fileName) {
-        // read file and return its contents in an array
-        return null; // to do
+    public static void initializeInputFilesArraySize(String filePath) throws FileNotFoundException, Exception {
+        File file = new File(filePath);
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {
+            String elementStr = scanner.nextLine();
+            int element = Integer.parseInt(elementStr);
+            if (!addedElements[element]) {
+                addedElements[element] = true;
+                sz++;
+            }
+        }
+        if (sz > QueueConstants.CAPACITY) {
+            throw new Exception("Input size is too large");
+        }
     }
 
-    Object[] readInputViaCMD(String fileName) {
-        // read single element from cmd and store in an array and return that array
-        return null; // to do
+    public static void readInputElementsFromCMD(int element) {
+        if (!addedElements[element]) {
+            queueElements[indx++] = element;
+            addedElements[element] = true;
+        }
     }
 
-    abstract public void enqueue(Object element);
+    public static void main(String[] args) throws Exception {
+        String inputSource = args[0];
+        String[] inputElements = inputSource.split(",");
+        for (int i = 0; i < inputElements.length; i++) {
+            System.out.print(inputElements[i] + " ");
+        }
+        if (inputElements[0].endsWith(QueueConstants.TXT_EXTENSION)) {
+            for (int x = 0; x < inputElements.length; x++) {
+                initializeInputFilesArraySize(inputElements[x]);
+            }
+            addedElements = new boolean[QueueConstants.CAPACITY];
+            queueElements = new int[sz];
+            for (int x = 0; x < inputElements.length; x++) {
+                readInputFile(inputElements[x]); // read input
+            }
+        } else {
+            queueElements = new int[inputElements.length];
+            for (int x = 0; x < inputElements.length; x++) {
+                int element = Integer.parseInt(inputElements[x]);
+                readInputElementsFromCMD(element);
+            }
+        }
 
-    abstract public void dequeue();
+        // Queue using Array
+        abstractQueue = new QueueArrayImpl(QueueConstants.CAPACITY);
+        for (int i = 0; i < queueElements.length; i++) {
+            abstractQueue.enqueue(queueElements[i]);
+        }
+        System.out.println("\n************Queue using Array************");
+        takeScannerInput(); // util method to ask for option to dequeue
 
+        // Queue using Linked List
+        abstractQueue = new QueueLinkedListImpl();
+        for (int i = 0; i < queueElements.length; i++) {
+            abstractQueue.enqueue(queueElements[i]);
+        }
+        System.out.println("\n************Queue using Linked List************");
+        takeScannerInput();
+
+        // Sorted Linked List
+        SortedLinkedList sortedList = new SortedLinkedList();
+        for (int i = 0; i < queueElements.length; i++) {
+            sortedList.insert(queueElements[i]);
+        }
+        takeScannerInputSortedList(sortedList);
+    }
 }

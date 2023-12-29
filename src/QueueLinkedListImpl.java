@@ -1,37 +1,57 @@
-public class QueueLinkedListImpl {
-    Node queueHead;
+public class QueueLinkedListImpl extends AbstractQueue{
+    private Node front, rear;
 
-    void enQueue(String input) {
-        /**
-         // if queue size is full throw overflow error
-         readInputSource(input);
-         Object[] inputDataArray = readInputSource(input);
-         Object[] updatedDataArray = ignoreDuplicates(inputDataArray);
-         // if queue is empty then we will create a head node and add the data or else we create a new node,
-         traverse the list and add the new node to the end of queueData
-         displayQueue();
-         **/
+    public QueueLinkedListImpl() {
+        front = rear = null;
     }
 
-    void deQueue(Object[] tempArray) {
-        /**
-         // if queue size is empty throw underflow error
-         // remove head node and update the current 1st node as the head node
-         // log the removed element to output file / cmd
-         }
-         **/
+    @Override
+    public void enqueue(int item) {
+        Node newNode = new Node(item);
+        if (rear == null) {
+            front = rear = newNode;
+            return;
+        }
+        rear.next = newNode;
+        rear = newNode;
     }
 
-    Boolean searchQueue (String elem, Node queueData) {
-        /**
-         // get the existing data from queueData by traversing and check if element is there and return
-         Boolean
-         **/
-        return false; // to do
+    @Override
+    public int dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        int item = front.data;
+        front = front.next;
+        if (front == null) {
+            rear = null;
+        }
+        return item;
     }
-    void displayQueue (Node queueData) {
-        /**
-         // write the current contents of queue in a file
-         **/
+
+    public boolean isEmpty() {
+        return front == null;
+    }
+
+    @Override
+    public int size() {
+        int count = 0;
+        Node current = front;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
+
+    @Override
+    public void displayQueueStatus() {
+        Node current = front;
+        System.out.println("Queue Linked List Status: ");
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
     }
 }

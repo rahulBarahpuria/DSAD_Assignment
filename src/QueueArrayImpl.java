@@ -1,35 +1,52 @@
-public class QueueArrayImpl {
-    public Object[] queue; // max size = 100000
+public class QueueArrayImpl extends AbstractQueue{
+    private int[] array;
+    private int front, rear, size;
 
-    void enQueue(String input) {
-        /**
-         // if queue size is full throw overflow error
-         Object[] inputDataArray = readInputSource(input);
-         Object[] updatedDataArray = ignoreDuplicates(inputDataArray);
-         // add elements from returned array from above method to the end of queueData
-         displayQueue();
-         **/
+    public QueueArrayImpl(int capacity) {
+        array = new int[capacity];
+        front = rear = -1;
+        size = 0;
     }
 
-    void deQueue(Object[] tempArray) {
-        /**
-         // if queue size is empty throw underflow error
-         // remove element from the front from queueData
-         // log the removed element to output file / cmd
-         **/
+    @Override
+    public void enqueue(int item) {
+        if (rear == array.length - 1) {
+            System.out.println("Queue is full");
+            return;
+        }
+        if (front == -1)
+            front = 0;
+        array[++rear] = item;
+        size++;
     }
 
-    Boolean searchQueue(String elem, Object[] queueData) {
-        /**
-         // get the existing data from queueData and check if element is there and return Boolean
-         **/
-        return null; // to do
+    @Override
+    public int dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        int item = array[front++];
+        size--;
+        if (isEmpty()) {
+            front = rear = -1;
+        }
+        return item;
+    }
+    public boolean isEmpty() {
+        return size == 0;
     }
 
-    void displayQueue(Object[] queueData) {
-        /**
-         // write the current contents of queue in a file
-         **/
+    @Override
+    public int size() {
+        return size;
     }
 
+    @Override
+    public void displayQueueStatus() {
+        System.out.println("Queue Array Status: ");
+        for(int i = front; i < (front + size()); i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
 }

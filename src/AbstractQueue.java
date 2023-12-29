@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -82,7 +81,10 @@ abstract public class AbstractQueue {
             System.out.println("\nEnter element to remove otherwise enter -1 to exit");
             removeElement = scanner.nextInt();
             if (removeElement != -1) {
+                long start = System.currentTimeMillis();
                 sortedLinkedList.remove(removeElement);
+                long end = System.currentTimeMillis();
+                System.out.println("Time Taken: " + (end - start));
             }
         } while (removeElement != -1);
     }
@@ -149,8 +151,9 @@ abstract public class AbstractQueue {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
+        writeOutput();
         String inputSource = args[0];
-        String[] inputElements = inputSource.split(",");
+        String[] inputElements = inputSource.split(QueueConstants.DELIMITER);
         for (int i = 0; i < inputElements.length; i++) {
             System.out.print(inputElements[i] + " ");
         }
@@ -172,11 +175,15 @@ abstract public class AbstractQueue {
         }
 
         // Queue using Array
+        System.out.println("\n************Queue using Array************");
         abstractQueue = new QueueArrayImpl(QueueConstants.CAPACITY);
+        long start = System.currentTimeMillis();
         for (int i = 0; i < queueElements.length; i++) {
             abstractQueue.enqueue(queueElements[i]);
         }
-        System.out.println("\n************Queue using Array************");
+        long end = System.currentTimeMillis();
+        long diff = end - start;
+        System.out.println("Time Taken to insert all elements in Array Queue: " + diff + "ms");
         takeScannerInput(); // util method to ask for option to dequeue
 
         // Queue using Linked List
@@ -188,11 +195,20 @@ abstract public class AbstractQueue {
         takeScannerInput();
 
         // Sorted Linked List
-        System.out.println("\n************Sorted Linked List************");
+
         SortedLinkedList sortedList = new SortedLinkedList();
         for (int i = 0; i < queueElements.length; i++) {
             sortedList.insert(queueElements[i]);
         }
         takeScannerInputSortedList(sortedList);
+
+    }
+
+    public static void writeOutput() throws FileNotFoundException {
+        String filePath = QueueConstants.OUTPUT_FILE;
+        File file = new File(filePath);
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        TeeOutputStream teeOutputStream = new TeeOutputStream(System.out, fileOutputStream);
+        System.setOut(new PrintStream(teeOutputStream));
     }
 }

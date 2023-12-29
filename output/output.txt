@@ -1,0 +1,103 @@
+../input/input1.txt 
+************Queue using Array************
+Time Taken to insert all elements in Array Queue: 0ms
+Queue Array Status: 
+23 56 13 98 -45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 17
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 23
+Queue Array Status: 
+56 13 98 -45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 16
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 56
+Queue Array Status: 
+13 98 -45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 15
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 13
+Queue Array Status: 
+98 -45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 14
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 98
+Queue Array Status: 
+-45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 13
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: -45
+Queue Array Status: 
+345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 12
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+
+************Queue using Linked List************
+Queue Linked List Status: 
+23 56 13 98 -45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 17
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 23
+Queue Linked List Status: 
+56 13 98 -45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 16
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 56
+Queue Linked List Status: 
+13 98 -45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 15
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 13
+Queue Linked List Status: 
+98 -45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 14
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 98
+Queue Linked List Status: 
+-45 345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 13
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: -45
+Queue Linked List Status: 
+345 53 645 642 2534 436 -4576 354 534 456 564 254  | Size: 12
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Sorted Linked List:
+-4576 -45 13 23 53 56 98 254 345 354 436 456 534 564 642 645 2534 
+
+Enter element to remove otherwise enter -1 to exit
+Time Taken: 0
+Sorted Linked List:
+-4576 13 23 53 56 98 254 345 354 436 456 534 564 642 645 2534 
+
+Enter element to remove otherwise enter -1 to exit
+Time Taken: 0
+Sorted Linked List:
+-4576 13 23 53 98 254 345 354 436 456 534 564 642 645 2534 
+
+Enter element to remove otherwise enter -1 to exit
+Time Taken: 0
+Sorted Linked List:
+-4576 13 23 53 254 345 354 436 456 534 564 642 645 2534 
+
+Enter element to remove otherwise enter -1 to exit
+Element not found. Cannot remove.
+Time Taken: 1
+Sorted Linked List:
+-4576 13 23 53 254 345 354 436 456 534 564 642 645 2534 
+
+Enter element to remove otherwise enter -1 to exit
+Time Taken: 0
+Sorted Linked List:
+-4576 23 53 254 345 354 436 456 534 564 642 645 2534 
+
+Enter element to remove otherwise enter -1 to exit
+Time Taken: 0
+Sorted Linked List:
+-4576 23 254 345 354 436 456 534 564 642 645 2534 
+
+Enter element to remove otherwise enter -1 to exit
+Time Taken: 0
+Sorted Linked List:
+23 254 345 354 436 456 534 564 642 645 2534 
+
+Enter element to remove otherwise enter -1 to exit

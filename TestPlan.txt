@@ -1,2 +1,86 @@
 Test Plan:
+############
+
+
+Test Case1:
+----------
+
+Verify Queue using array (Dequeue):
+-	Check Queue using array status and size 17
+-	Enter any digit except 0 to dequeue
+-	Check Queue using array status and size reduced 16
+-	Enter again any digit except 0 to dequeue
+-	Check Queue using array status and size reduced 15
+
+
+Test Case2:
+-----------
+
+Verify Queue using Linked List (Dequeue):
+-	Check Queue using Linked list status and size 17
+-	Enter any digit except 0 to dequeue
+-	Check Queue using Linked list status and size reduced 16
+-	Enter again any digit except 0 to dequeue
+-	Check Queue using Linked list status and size reduced 15
+
+
+Test Case3:
+----------
+
+Verify Sorted Linked List (Remove):
+-	Enter element to remove or -1 to exit
+-	verify the time to search the element.
+-	verify the time to remove the element.
+-	Check Sorted Linked list status
+
+
+Test Case4:
+----------
+
+Verify Sorted Linked List (Remove element that is not present):
+-	Enter element to remove or -1 to exit
+-	verify the time to search and remove the element
+-	Check Sorted Linked list status
+-	Enter again same element to remove
+-	Verify the error:Element not found. Cannot Remove
+-	Check Sorted Linked list status
+
+
+
+Test Case5:
+-----------
+
+Verify Queue using array status (UnderFlow):
+-	Check Queue using array status and size 7
+-	Enter any digit except 0 to dequeue
+-	Check Queue using array status and size reduced 6
+-	Enter again any digit except 0 to dequeue
+-	Check Queue using array status and size reduced 5
+-	Enter again any digit except 0 to dequeue
+-	Check Queue using array status and size reduced 4
+-	Enter again any digit except 0 to dequeue
+-	Check Queue using array status and size reduced 3
+-	Enter again any digit except 0 to dequeue
+-	Check Queue using array status and size reduced 2
+-	Enter again any digit except 0 to dequeue
+-	Check Queue using array status and size reduced 1
+-	Enter again any digit except 0 to dequeue
+-	Check Queue using array status and size reduced 0
+-   Verify Queue is empty
+-   For Dequeue: -1
+-   Verify Queue Array Status
+-   Verify Size: 0
+
+
+
+Test Case6:
+-----------
+
+Verify Queue using array status (Overflow):
+-	Check Queue using array status and size 1000000
+-   Add new elements in queue
+-   Verify Queue is full
+-   Verify Dequeue: -1
+-   Verify Queue Array Status: 
+-   Verify Size: 100000
 

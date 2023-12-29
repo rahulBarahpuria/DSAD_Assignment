@@ -64,7 +64,11 @@ abstract public class AbstractQueue {
             System.out.println("\nPress any digit (other than 0) to dequeue, or 0 to exit");
             choice = scanner.nextInt();
             if (choice != 0) {
+                long start = System.nanoTime();
                 System.out.println("Dequeue: " + abstractQueue.dequeue());
+                long end = System.nanoTime();
+                double diff = (end - start) / 1e6;
+                System.out.println("Time taken for dequeue: " + diff);
             }
         } while (choice != 0);
     }
@@ -177,31 +181,38 @@ abstract public class AbstractQueue {
         // Queue using Array
         System.out.println("\n************Queue using Array************");
         abstractQueue = new QueueArrayImpl(QueueConstants.CAPACITY);
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         for (int i = 0; i < queueElements.length; i++) {
             abstractQueue.enqueue(queueElements[i]);
         }
-        long end = System.currentTimeMillis();
-        long diff = end - start;
+        long end = System.nanoTime();
+        double diff = (end - start) / 1e6;
         System.out.println("Time Taken to insert all elements in Array Queue: " + diff + "ms");
         takeScannerInput(); // util method to ask for option to dequeue
 
         // Queue using Linked List
+        System.out.println("\n************Queue using Linked List************");
         abstractQueue = new QueueLinkedListImpl();
+        long start1 = System.nanoTime();
         for (int i = 0; i < queueElements.length; i++) {
             abstractQueue.enqueue(queueElements[i]);
         }
-        System.out.println("\n************Queue using Linked List************");
+        long end1 = System.nanoTime();
+        double diff1 = (end1 - start1) / 1e6;
+        System.out.println("Time taken to insert all elements in Queue linked list: " + diff1);
         takeScannerInput();
 
         // Sorted Linked List
 
         SortedLinkedList sortedList = new SortedLinkedList();
+        long startTime = System.nanoTime();
         for (int i = 0; i < queueElements.length; i++) {
             sortedList.insert(queueElements[i]);
         }
+        long endTime = System.nanoTime();
+        double diffTime = (end - start) / 1e6;
+        System.out.println("TimeTaken to insert all elements in sorted linked list: " + diffTime);
         takeScannerInputSortedList(sortedList);
-
     }
 
     public static void writeOutput() throws FileNotFoundException {

@@ -1,6 +1,7 @@
 Specification and Design document. This Document should also include -
 Function Definitions:
 
+
 Data Structures and Variables Names
 1. Array - queueArray, queueElements, addedElements
 2. Linked List

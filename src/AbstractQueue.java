@@ -62,7 +62,7 @@ abstract public class AbstractQueue {
         do {
             abstractQueue.displayQueueStatus();
             System.out.println(" | Size: " + abstractQueue.size());
-            System.out.println("\nPress any key (other than 0) to dequeue, or 0 to exit");
+            System.out.println("\nPress any digit (other than 0) to dequeue, or 0 to exit");
             choice = scanner.nextInt();
             if (choice != 0) {
                 System.out.println("Dequeue: " + abstractQueue.dequeue());
@@ -188,6 +188,7 @@ abstract public class AbstractQueue {
         takeScannerInput();
 
         // Sorted Linked List
+        System.out.println("\n************Sorted Linked List************");
         SortedLinkedList sortedList = new SortedLinkedList();
         for (int i = 0; i < queueElements.length; i++) {
             sortedList.insert(queueElements[i]);

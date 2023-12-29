@@ -9,4 +9,4 @@ Steps to build:
 cd src
 javac AbstractQueue.java
 2. Run this command to execute the program, pass the input as command line arguments -
-java AbstractQueue ../input/input1.txt ../input/input2.txt ../input/input4.txt
+java AbstractQueue ../input/input1.txt,../input/input2.txt

@@ -50,7 +50,7 @@ Verify Sorted Linked List (Remove element that is not present):
 Test Case5:
 -----------
 
-Verify Queue using array status (UnderFlow):
+Verify Queue using array (UnderFlow):
 -	Check Queue using array status and size 7
 -	Enter any digit except 0 to dequeue
 -	Check Queue using array status and size reduced 6
@@ -76,11 +76,16 @@ Verify Queue using array status (UnderFlow):
 Test Case6:
 -----------
 
-Verify Queue using array status (Overflow):
--	Check Queue using array status and size 1000000
--   Add new elements in queue
+Verify Queue using array (Overflow):
+-	Enter more than 100000 elements in queue array
+-   Verify Size more than 100000
 -   Verify Queue is full
--   Verify Dequeue: -1
--   Verify Queue Array Status: 
--   Verify Size: 100000
+-   Verify Dequeue
+-   Verify Queue Array Status
 
+
+Test Case7:
+-----------
+Verify Queue using both array and linked list - empty input file:
+-	Verify queue is empty
+-	verify sorted linked list is empty

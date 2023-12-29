@@ -1,52 +1,21 @@
-../input/input4.txt 
+../input/input2.txt 
 ************Queue using Array************
-Time Taken to insert all elements in Array Queue: 1.67E-4ms
+Queue is full. ignoring element: 5
+Queue is full. ignoring element: 8
+Time Taken to insert all elements in Array Queue: 3.150667ms
 Queue Array Status: 
- | Size: 0
-
-Press any digit (other than 0) to dequeue, or 0 to exit
-Queue is empty
-Dequeue: -1
-Time taken for dequeue: 0.793334
-Queue Array Status: 
- | Size: 0
-
-Press any digit (other than 0) to dequeue, or 0 to exit
-Queue is empty
-Dequeue: -1
-Time taken for dequeue: 1.659542
-Queue Array Status: 
- | Size: 0
+59 23 12 79 9  | Size: 5
 
 Press any digit (other than 0) to dequeue, or 0 to exit
 
 ************Queue using Linked List************
-Time taken to insert all elements in Queue linked list: 3.75E-4
+Time taken to insert all elements in Queue linked list: 1.500583
 Queue Linked List Status: 
- | Size: 0
+59 23 12 79 9 5 8  | Size: 7
 
 Press any digit (other than 0) to dequeue, or 0 to exit
-Queue is empty
-Dequeue: -1
-Time taken for dequeue: 1.712583
-Queue Linked List Status: 
- | Size: 0
-
-Press any digit (other than 0) to dequeue, or 0 to exit
-TimeTaken to insert all elements in sorted linked list: 1.67E-4
+TimeTaken to insert all elements in sorted linked list: 3.150667
 Sorted Linked List:
-
-
-Enter element to remove otherwise enter -1 to exit
-List is empty. Cannot remove.
-Time Taken to remove an element: 1
-Sorted Linked List:
-
-
-Enter element to remove otherwise enter -1 to exit
-List is empty. Cannot remove.
-Time Taken to remove an element: 0
-Sorted Linked List:
-
+5 8 9 12 23 59 79 
 
 Enter element to remove otherwise enter -1 to exit

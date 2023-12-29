@@ -15,7 +15,7 @@ public class QueueArrayImpl extends AbstractQueue{
     @Override
     public void enqueue(int item) {
         if (rear == queueArray.length - 1) {
-            System.out.println("Queue is full");
+            System.out.println("Queue is full. ignoring element: " + item);
             return;
         }
         if (front == -1)

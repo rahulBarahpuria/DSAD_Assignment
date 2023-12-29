@@ -130,9 +130,6 @@ abstract public class AbstractQueue {
                 sz++;
             }
         }
-        if (sz > QueueConstants.CAPACITY) {
-            throw new Exception("Input size is too large");
-        }
     }
 
     /**

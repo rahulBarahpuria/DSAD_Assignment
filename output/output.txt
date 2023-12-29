@@ -1,21 +1,68 @@
-../input/input2.txt 
+78 98 45 77 665 09 -56 56 -89 65 -89 77 
 ************Queue using Array************
-Queue is full. ignoring element: 5
-Queue is full. ignoring element: 8
-Time Taken to insert all elements in Array Queue: 3.150667ms
+Time Taken to insert all elements in Array Queue: 0.002292ms
 Queue Array Status: 
-59 23 12 79 9  | Size: 5
+78 98 45 77 665 9 -56 56 -89 65 0 0  | Size: 12
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 78
+Time taken for dequeue: 0.728666
+Queue Array Status: 
+98 45 77 665 9 -56 56 -89 65 0 0  | Size: 11
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 98
+Time taken for dequeue: 0.179
+Queue Array Status: 
+45 77 665 9 -56 56 -89 65 0 0  | Size: 10
 
 Press any digit (other than 0) to dequeue, or 0 to exit
 
 ************Queue using Linked List************
-Time taken to insert all elements in Queue linked list: 1.500583
+Time taken to insert all elements in Queue linked list: 2.251125
 Queue Linked List Status: 
-59 23 12 79 9 5 8  | Size: 7
+78 98 45 77 665 9 -56 56 -89 65 0 0  | Size: 12
 
 Press any digit (other than 0) to dequeue, or 0 to exit
-TimeTaken to insert all elements in sorted linked list: 3.150667
+Dequeue: 78
+Time taken for dequeue: 0.2475
+Queue Linked List Status: 
+98 45 77 665 9 -56 56 -89 65 0 0  | Size: 11
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 98
+Time taken for dequeue: 0.210125
+Queue Linked List Status: 
+45 77 665 9 -56 56 -89 65 0 0  | Size: 10
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 45
+Time taken for dequeue: 0.551209
+Queue Linked List Status: 
+77 665 9 -56 56 -89 65 0 0  | Size: 9
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+Dequeue: 77
+Time taken for dequeue: 0.239375
+Queue Linked List Status: 
+665 9 -56 56 -89 65 0 0  | Size: 8
+
+Press any digit (other than 0) to dequeue, or 0 to exit
+TimeTaken to insert all elements in sorted linked list: 0.002292
 Sorted Linked List:
-5 8 9 12 23 59 79 
+-89 -56 0 0 9 45 56 65 77 78 98 665 
+
+Enter element to remove otherwise enter -1 to exit
+Time to search an element: 0
+Time Taken to remove an element: 2
+Sorted Linked List:
+-89 0 0 9 45 56 65 77 78 98 665 
+
+Enter element to remove otherwise enter -1 to exit
+Time to search an element: 0
+Element not found. Cannot remove.
+Time Taken to remove an element: 0
+Sorted Linked List:
+-89 0 0 9 45 56 65 77 78 98 665 
 
 Enter element to remove otherwise enter -1 to exit

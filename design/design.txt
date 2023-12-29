@@ -11,3 +11,5 @@ Assumptions used in the program:
 3. Input file format must be a text file (.txt file).
 3. Maximum input elements that can be given including all input files is 100000.
 4. Two integer values are used as keywords for user input during program runtime: 0 and -1. It is not advisable to use these 0 or -1 as input element for the queue or list.
+
+Please find enclosed Class diagram under this folder.
